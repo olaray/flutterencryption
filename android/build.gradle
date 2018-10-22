@@ -1,0 +1,39 @@
+group 'com.example.flutterpgp'
+version '1.0-SNAPSHOT'
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+    }
+
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+}
+apply plugin: 'com.android.library'
+android {
+    compileSdkVersion 27
+
+    defaultConfig {
+        minSdkVersion 21
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+}
+
+dependencies {
+    compileOnly files('templib/flutter.jar')
+    implementation files('templib/prov-1.50.0.0.jar')
+    implementation files('templib/pg-1.50.0.0.jar')
+    implementation files('templib/pkix-1.50.0.0.jar')
+    implementation files('templib/core-1.50.0.0.jar')
+}
